@@ -1,6 +1,12 @@
 const items = document.querySelector(".items");
+const form = document.querySelector(".new-form");
 const input = document.querySelector(".footer__input");
 const addBtn = document.querySelector(".footer__button");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); //자동 리로딩 방지를 위해서 사용함
+  onAdd();
+});
 
 function onAdd() {
   //1. 입력한 텍스트 받아오기
@@ -61,15 +67,19 @@ function createItem(text) {
   return itemRow;
 }
 
-addBtn.addEventListener("click", () => {
-  onAdd();
-});
+// addBtn.addEventListener("click", () => {
+//   onAdd();
+// });
 
-input.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
-    onAdd();
-  }
-});
+// input.addEventListener("keydown", (event) => {
+//   //이벤트가 만들어지는 중이라면 return(여기서는 글자가 쓰이는 중이라면)
+//   if (event.isComposing) {
+//     return;
+//   }
+//   if (event.key === "Enter") {
+//     onAdd();
+//   }
+// });
 
 items.addEventListener("click", (event) => {
   const id = event.target.dataset.id;
