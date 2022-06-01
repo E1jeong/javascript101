@@ -98,3 +98,13 @@ body {
 .pop-up__message {
     display: block;
 }
+
+.carrot, 
+.bug {
+    transition: transform 100ms ease-in;
+}
+
+.carrot:hover,
+.bug:hover {
+    transform: scale(1.1);
+}
